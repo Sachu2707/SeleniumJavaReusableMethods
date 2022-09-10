@@ -1,0 +1,8 @@
+.idea/
+reports/
+target/
+config/
+*.log
+LICENSE
+test-output/
+*.iml
