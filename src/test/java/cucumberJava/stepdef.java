@@ -39,9 +39,15 @@ public class stepdef extends Driverbase{
    }
    
    @Given("^Enter text$") 
-   public void enterText() throws IOException { 
-	   cf.sendText(user.get_txt_UserName(), "Sample");
-	   cf.getdatafromExcel(0, 0, 0);
+   public void enterText() throws IOException, InterruptedException { 
+	   
+	   
+	   int count=cf.getRowNumber("Sheet1");
+	   for(int i=0;i<count;i++) {
+		   Thread.sleep(1000);
+	       cf.sendText(user.get_txt_UserName(), cf.getdatafromExcel("Sheet1", i, 0));
+	       user.get_txt_UserName().clear();
+	   }
    }
    
 }

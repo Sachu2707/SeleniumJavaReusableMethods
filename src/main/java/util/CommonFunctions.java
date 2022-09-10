@@ -55,16 +55,22 @@ public class CommonFunctions extends Driverbase {
     	}
     }
     
-    public String getdatafromExcel(int sheetnumber, int rowNumber,int col) throws IOException {
-    	XSSFSheet sheet = getWorkBook().getSheetAt(sheetnumber);
+    public String getdatafromExcel(String sheetname, int rowText,int col) throws IOException {
+    	XSSFSheet sheet = getWorkBook().getSheet(sheetname);
     	int rowCount = sheet.getLastRowNum();
 		System.out.println("Total rows : "+rowCount);
 		
-		Row row=sheet.getRow(rowNumber); //returns the logical row  
+		Row row=sheet.getRow(rowText); //returns the logical row  
 		Cell cell=row.getCell(col); //getting the cell representing the given column  
 		String usr=cell.getStringCellValue();//getting cell value  
 		
 		return usr;
+    }
+    
+    public int getRowNumber(String sheetname)throws IOException {
+    	XSSFSheet sheet = getWorkBook().getSheet(sheetname);
+    	int rowCount = sheet.getLastRowNum();
+    	return rowCount;
     }
 
 }
