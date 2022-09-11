@@ -48,6 +48,7 @@ public class stepdef extends Driverbase{
 	       cf.sendText(user.get_txt_UserName(), cf.getdatafromExcel("Sheet1", i, 0));
 	       user.get_txt_UserName().clear();
 	   }
+//	   cf.sendText(user.get_txt_UserName(),cf.getdatafromExcelBasedonColValue("Sheet1", "a10", 0));
    }
    
 }
